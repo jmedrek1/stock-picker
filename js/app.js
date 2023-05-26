@@ -10,11 +10,11 @@ const exchange = 'NASDAQ'; // fetch stocks from NASDAQ exchange
 fetch(`https://www.alphavantage.co/query?function=LISTING_STATUS&exchange=${exchange}&apikey=${apiKey}`)
     .then(response => response.json())
     .then(data => {
-        // handle response data
+        // Handle the response data
         console.log(data);
     })
     .catch(error => {
-        // handle errors
+        // Handle any errors
         console.error(error);
     });
 
