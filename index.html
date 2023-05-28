@@ -7,6 +7,8 @@
 
         <!--Tailwind CSS CDN-->
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.17/dist/tailwind.min.css" rel="stylesheet">
+        <!--Chart.js CDN-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!--Add custom style-->
         <style>
             .bg-gray {
@@ -24,6 +26,7 @@
             <div id="stockNameContainer" class="text-center">
                 <p id="stockName" class="text-x1 italic text-white mt-1 mb-8"></p>
             </div>
+            <canvas id="priceChart" class="items-center mb-8" width="400" height="300"></canvas>
             <button id="pickButton" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                 Pick a Random Stock
             </button>
