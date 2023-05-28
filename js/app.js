@@ -20,10 +20,12 @@ function getRandomStock() {
 }
 
 function updateStockInfo() {
-    const stock = getRandomStock();
-    updateTickerSymbol(stock);
-    updateStockName(stock);
-    updatePriceChart(stock);
+    fetchSymbols().then(() => {
+        const stock = getRandomStock();
+        updateTickerSymbol(stock);
+        updateStockName(stock);
+        updatePriceChart(stock);
+    });
 }
 
 function updateTickerSymbol(stock) {
