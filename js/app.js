@@ -4,7 +4,7 @@
 let tickerSymbols = []; // Temporary list of symbols as an example
 
 function fetchSymbols() {
-    return fetch('../assets/nasdaq.json')
+    return fetch('assets/nasdaq.json')
         .then(response => response.json())
         .then(data => {
             console.log(data);
