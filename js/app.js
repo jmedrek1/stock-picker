@@ -7,6 +7,7 @@ function fetchSymbols() {
     return fetch('../assets/nasdaq.json')
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             tickerSymbols = data;
         })
         .catch(error => {
