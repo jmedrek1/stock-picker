@@ -7,10 +7,10 @@ function fetchSymbols() {
     return fetch('../assets/nasdaq.json')
         .then(response => response.json())
         .then(data => {
-        tickerSymbols = data;
+            tickerSymbols = data;
         })
         .catch(error => {
-        console.error(error);
+            console.error(error);
         });
 }
 
@@ -55,14 +55,21 @@ function updatePriceChart(stock) {
 
             const dates = Object.keys(timeSeriesData).reverse();
             const closingPrices = dates.map(data => parseFloat(timeSeriesData[data]['4. close']));
+            
+            // set color based on price change
+            const firstPrice = closingPrices[0];
+            const lastPrice = closingPrices[closingPrices.length - 1];
+            const color = lastPrice >= firstPrice ? 'green' : 'red';
 
             const chartData = {
                 labels: dates,
                 datasets: [{
                     label: 'Price',
                     data: closingPrices,
-                    borderColor: 'green',
-                    fill: false
+                    borderColor: color,
+                    backgroundColor: color,
+                    fill: false,
+                    pointRadius: 0
                 }]
             };
             
@@ -76,7 +83,8 @@ function updatePriceChart(stock) {
                     data: chartData,
                     options: {
                         responsive: false,
-                        maintainAspectRatio: false
+                        maintainAspectRatio: false,
+                        animation: false
                     }
                 });
             }
